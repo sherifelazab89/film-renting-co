@@ -1,0 +1,67 @@
+##film actor;
+select
+actor.actor_id,actor.first_name,actor.last_name,film_actor.film_id
+from actor
+left join film_actor on actor.actor_id=film_actor.actor_id
+order by actor.actor_id;
+##film langauge;
+select
+film.film_id,film.title,film.rental_duration,film.rental_rate,film.rating,film.language_id,language.name
+from film
+left join language on film.language_id=language.language_id;
+##film category;
+select film_category.film_id,film_category.category_id,category.name
+from film_category
+left join  category on film_category.category_id = category.category_id;
+##film inventory;
+select inventory.inventory_id,inventory.film_id from inventory;
+##customer information;
+SELECT customer.customer_id,customer.first_name,customer.last_name,customer.address_id,address.city_id
+             
+  FROM customer
+       LEFT JOIN
+       address ON customer.address_id = address.address_id;
+       
+   SELECT city.city_id,city.city,city.country_id,country.country
+             
+  FROM city
+       LEFT JOIN
+       country ON city.country_id = country.country_id; 
+              select * from address;
+ #bussiness owner data;
+ select * from store;
+     select store.store_id,store.manager_staff_id,store.address_id,staff.first_name,staff.last_name
+     from store
+     left join staff on store.store_id=staff.store_id;
+ select store.store_id,store.manager_staff_id,store.address_id,address.address,address.city_id
+ from store
+ left join address on store.address_id=address.address_id;
+ select * from rental;
+ SELECT COUNT(staff_id)
+FROM rental
+WHERE staff_id=1;
+ SELECT COUNT(staff_id)
+FROM rental
+WHERE staff_id=2;
+ SELECT COUNT(staff_id)
+FROM rental;
+select store_id from customer;
+select count(store_id)
+from customer where store_id=1;
+select store_id from customer;
+select count(store_id)
+from customer where store_id=1;
+select count(store_id)
+from customer where store_id=2;
+select count(store_id)
+from customer;
+ select count(store_id)
+from inventory where store_id=1;
+ select count(store_id)
+from inventory where store_id=2;
+ select * from payment;
+ select sum(amount)
+from payment where staff_id=1;
+  select sum(amount)
+from payment where staff_id=2;
+select store_id,customer_id from customer;  
